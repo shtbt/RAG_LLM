@@ -406,48 +406,36 @@ that.
 documents and retrieve the answer. You can consider additional tips to
 answer in the template. By default the RAG template in Open WebUI is:
 
-```
-\### Task:  
-Respond to the user query using the provided context, incorporating
-inline citations in the format \[source_id\] \*\*only when the
-\<source_id\> tag is explicitly provided\*\* in the context.  
-  
-\### Guidelines:  
-- If you don't know the answer, clearly state that.  
-- If uncertain, ask the user for clarification.  
-- Respond in the same language as the user's query.  
-- If the context is unreadable or of poor quality, inform the user and
-provide the best possible answer.  
-- If the answer isn't present in the context but you possess the
-knowledge, explain this to the user and provide the answer using your
-own understanding.  
-- \*\*Only include inline citations using \[source_id\] when a
-\<source_id\> tag is explicitly provided in the context.\*\*  
-- Do not cite if the \<source_id\> tag is not provided in the context.  
-- Do not use XML tags in your response.  
-- Ensure citations are concise and directly related to the information
-provided.  
-  
-\### Example of Citation:  
-If the user asks about a specific topic and the information is found in
-"whitepaper.pdf" with a provided \<source_id\>, the response should
-include the citation like so:  
-\* "According to the study, the proposed method increases efficiency by
-20% \[whitepaper.pdf\]."  
-If no \<source_id\> is present, the response should omit the citation.  
-  
-\### Output:  
-Provide a clear and direct response to the user's query, including
-inline citations in the format \[source_id\] only when the \<source_id\>
-tag is present in the context.  
-  
-\<context\>  
-{{CONTEXT}}  
-\</context\>  
-  
-\<user_query\>  
-{{QUERY}}  
-\</user_query\>
+```html
+### Task:
+Respond to the user query using the provided context, incorporating inline citations in the format [source_id] **only when the <source_id> tag is explicitly provided** in the context.
+
+### Guidelines:
+- If you don't know the answer, clearly state that.
+- If uncertain, ask the user for clarification.
+- Respond in the same language as the user's query.
+- If the context is unreadable or of poor quality, inform the user and provide the best possible answer.
+- If the answer isn't present in the context but you possess the knowledge, explain this to the user and provide the answer using your own understanding.
+- **Only include inline citations using [source_id] when a <source_id> tag is explicitly provided in the context.**  
+- Do not cite if the <source_id> tag is not provided in the context.  
+- Do not use XML tags in your response.
+- Ensure citations are concise and directly related to the information provided.
+
+### Example of Citation:
+If the user asks about a specific topic and the information is found in "whitepaper.pdf" with a provided <source_id>, the response should include the citation like so:  
+* "According to the study, the proposed method increases efficiency by 20% [whitepaper.pdf]."
+If no <source_id> is present, the response should omit the citation.
+
+### Output:
+Provide a clear and direct response to the user's query, including inline citations in the format [source_id] only when the <source_id> tag is present in the context.
+
+<context>
+{{CONTEXT}}
+</context>
+
+<user_query>
+{{QUERY}}
+</user_query>
 ```
 
 **4-Chunk Size and Chunk Overlap:** You may have long documents which
@@ -455,9 +443,12 @@ needs to be separated in order to be easier searched.
 
 The other type of parameters which needs to be set is belongs to LLM
 model itself. You may find these parameters by going to
-**Workspace\>Models **, find your model and hit the Edit button:
+**Workspace**\>**Models**, find your model and hit the Edit button:
 
-<img src="media/image12.png" style="width:6.5in;height:3.05556in" />
+<p align="center">
+  <img src="15.png" alt="Description" width="500"/>
+  <br>
+</p>
 
 Then, in the model’s page, in front of **Advanced Params** press
 **Show** to find these parameters. As you can see, numerous parameters
