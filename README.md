@@ -102,8 +102,11 @@ Next, let’s discuss Open WebUI and how it fits into the workflow.
 
 ### Open WebUI and Its Role in RAG
 
-<img src="https://github.com/shtbt/RAG_LLM/blob/main/OPENWEBUI.png" style="width:2.08333in;height:2.08333in" />[Open
-WebU](https://github.com/open-webui/open-webui)I Interface
+<p align="center">
+  <img src="OPENWEBUI.png" alt="Description" width="200"/>
+  <br>
+  <em> <a href="https://github.com/open-webui/open-webui" target="_blank">Open WebUI</a> Interface </em>
+</p>
 
 [**<u>Open WebUI</u>**](https://github.com/open-webui/open-webui) is an
 open-source, user-friendly interface designed for managing and
@@ -255,8 +258,12 @@ now, you can see the panel at: <http://localhost:3000> or
 Click on **Get started**, enter **Name**,**Email** and **Password** for
 administration and enter the Open Webui:
 
-<img src="media/image5.png" style="width:6.5in;height:3.86389in" />Open
-Webui Panel
+<p align="center">
+  <img src="4.png" alt="Description" width="1000"/>
+  <br>
+  <em> Open Webui Panel </em>
+</p>
+
 
 As you can see, there is a complete inference panel where you can define
 users, groups, and comprehensive administrative facilities for managing
@@ -274,24 +281,34 @@ choosen
 from [llama3.2](https://ollama.com/library/llama3.2/tags) family to fit
 into my RTX4060 GPU with 8GB of Ram. for downloading the model:
 
+```bash
 docker exec -it ollama ollama run llama3.2:3b-instruct-fp16
+```
 
 By doing this, ollama download this model, and you can use it both in
 the terminal:
 
-<img src="media/image6.png" style="width:6.5in;height:1.87431in" />
+<p align="center">
+  <img src="terminal.png" alt="Description" width="1000"/>
+  <br>
+</p>
 
 Or in Open WebUI panel:
 
-<img src="media/image7.png" style="width:6.5in;height:3.65833in" />
+<p align="center">
+  <img src="17.png" alt="Description" width="1000"/>
+  <br>
+</p>
 
 or even via Ollama Rest API:
 
+```bash
 curl http://localhost:11434/api/generate -d '{  
 "model": "llama3.2:1b-instruct-fp16",  
 "prompt": "Why is the sky blue?",  
 "stream": false  
 }'
+```
 
 Now, you can download different models and test them to find the one
 that best fits your application.
@@ -313,16 +330,19 @@ and upload files. I add two simple test file:
 
 file1:
 
-Hello, my name is John. I work for OpenAI and I get 100000\$ a year.  
-I have a dog named Peter who likes me a lot!
+> Hello, my name is John. I work for OpenAI and I get 100000\$ a year.  
+> I have a dog named Peter who likes me a lot!
 
 file2:
 
-Hello, my name is Richard. I work for Deepseek and I get 90000\$ a
-year.  
-I have a cat named Cordellia who is always tired!
+> Hello, my name is Richard. I work for Deepseek and I get 90000\$ a
+> year.  
+> I have a cat named Cordellia who is always tired!
 
-<img src="media/image8.png" style="width:6.5in;height:1.24583in" />
+<p align="center">
+  <img src="18.png" alt="Description" width="1000"/>
+  <br>
+</p>
 
 Now, you have successfully added two files to your **Knowledge**. You
 can always add or delete files, but pay attention if contents of a file
@@ -335,14 +355,20 @@ name, Select **Base Model** on which you want to create your RAG. Then
 in select knowledge, add your already-created Knowledge to this model.
 Finally, you have something like this:
 
-<img src="media/image9.png" style="width:6.5in;height:3.83125in" />
+<p align="center">
+  <img src="12.png" alt="Description" width="1000"/>
+  <br>
+</p>
 
 press **Save & create** and you have this model in models list now!
 
 Let’s test our RAG:
 
-<img src="media/image10.png" style="width:6.5in;height:2.00764in" />First
-Question from the Model
+<p align="center">
+  <img src="13.png" alt="Description" width="1000"/>
+  <br>
+  <em> First Question from the Model </em>
+</p>
 
 As you can see, it responded to my question base on the contents of the
 files I’ve added.
@@ -355,12 +381,18 @@ pipeline to optimize the model’s performance. Once again, I want to draw
 your attention to this pipeline. There are several crucial parameters
 that need to be configured.
 
-<img src="media/image2.png" style="width:6.5in;height:3.07292in" />
+<p align="center">
+  <img src="RAG_PIPE.png" alt="Description" width="1000"/>
+  <br>
+</p>
 
 In Open WebUi, **Settings\>Admin Settings\>Documents** you can see a lot
 of parameters:
 
-<img src="media/image11.png" style="width:6.5in;height:2.40833in" />
+<p align="center">
+  <img src="19.png" alt="Description" width="1000"/>
+  <br>
+</p>
 
 **Embedding Model:** The model which is being used to embed query and
 documents into vectors. by default
@@ -374,6 +406,7 @@ that.
 documents and retrieve the answer. You can consider additional tips to
 answer in the template. By default the RAG template in Open WebUI is:
 
+```
 \### Task:  
 Respond to the user query using the provided context, incorporating
 inline citations in the format \[source_id\] \*\*only when the
@@ -415,6 +448,7 @@ tag is present in the context.
 \<user_query\>  
 {{QUERY}}  
 \</user_query\>
+```
 
 **4-Chunk Size and Chunk Overlap:** You may have long documents which
 needs to be separated in order to be easier searched.
