@@ -173,7 +173,7 @@ brew install docker
 
 Download and install [**<u>Docker
 Desktop</u>**](https://www.docker.com/products/docker-desktop/) from
-Docker’s official website.
+Docker’s official website. Or you can use WSL to emulate Linux.
 
 #### Step 2: Pull the Ollama Docker Image
 
