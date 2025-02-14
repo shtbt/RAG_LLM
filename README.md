@@ -399,9 +399,7 @@ documents into vectors. by default
 **sentence-transformers/all-MiniLM-L6-v2** but you can change it base on
 your case just by writing the name and hit the download button beside
 that.
-
 **Top K:** Number of relevant documents to be retrieved
-
 **RAG Template:** Query by which you ask model to finds the relevant
 documents and retrieve the answer. You can consider additional tips to
 answer in the template. By default the RAG template in Open WebUI is:
