@@ -304,7 +304,7 @@ or even via Ollama Rest API:
 
 ```bash
 curl http://localhost:11434/api/generate -d '{  
-"model": "llama3.2:1b-instruct-fp16",  
+"model": "llama3.2:3b-instruct-fp16",  
 "prompt": "Why is the sky blue?",  
 "stream": false  
 }'
